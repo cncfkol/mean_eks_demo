@@ -1,0 +1,121 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Mean Application API",
+      "description": "Mean Application API",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:4040",
+    "basePath": "/api/",
+    "tags": [
+      {
+        "name": "Users",
+        "description": "API for users in the system"
+      },
+      {
+        "name": "Auth",
+        "description": "API for auth in the system"
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "securityDefinitions": {
+      "AuthHeader": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization"
+      }
+    },
+    "paths": {
+      "/auth/login": {
+        "post": {
+          "tags": ["Auth"],
+          "description": "Login to the system",
+        "parameters": [{
+          "name": "auth",
+          "in": "body",
+          "description": "User auth details",
+          "schema": {
+            "type": "object",
+            "required": ["email", "password"],
+            "properties": {
+              "email": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              }
+            }
+          }
+        }],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "User is loggedin",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+      }
+    },
+    "definitions": {
+      "User": {
+        "required": [
+          "email",
+          "fullname"
+        ],
+        "properties": {
+          "_id": {
+            "type": "string",
+            "uniqueItems": true
+          },
+          "email": {
+            "type": "string",
+            "uniqueItems": true
+          },
+          "fullname": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Users": {
+        "type": "array",
+        "$ref": "#/definitions/User"
+      },
+      "Auth": {
+        "type": "object",
+        "properties": [{
+          "token": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/definitions/User"
+          }
+        }]
+      }
+  }
+}

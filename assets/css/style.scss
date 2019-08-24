@@ -1,0 +1,30 @@
+---
+---
+
+@import "{{ site.theme }}";
+h1 {
+  a {
+    color:#00758f;
+    text-size:40px;
+  }
+}
+header {
+ img.logo {
+    margin-left:30px;
+    display:block;
+    height: auto; 
+    width: auto; 
+    max-width: 150px; 
+    max-height: 200px;
+    margin-bottom: 17%;
+ }
+ img.ninja {
+  margin-top: 20px;
+  height: auto; 
+  width: auto; 
+  max-width: 350px; 
+  max-height: 200px;
+  margin-bottom: 50px;
+ }
+
+} 
