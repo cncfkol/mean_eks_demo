@@ -27,7 +27,7 @@
     "@angular/router": "^6.1.9",
     "angular-pipes": "^8.0.0",
     "angular-tree-component": "^7.2.0",
-    "bcrypt": "^3.0.2",
+    "bcrypt": "^5.0.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
     "compression": "^1.7.2",
